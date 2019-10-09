@@ -1,0 +1,32 @@
+templates:
+  tv:
+    series:
+      settings:
+        1080p:
+          quality: 1080p
+          set:
+            path: /User/dane/Desktop/TV Shows/{{series_name}}/Season {{series_season}}
+        720p:
+          quality: 720p
+          set:
+            path: /User/dane/Desktop/TV Shows/{{series_name}}/Season {{series_season}}
+      1080p:
+        - Mr.Robot:
+            begin: S04E01
+    transmission:
+      enabled: yes
+      host: localhost
+      port: 9091
+      username: user
+      password: password 
+
+tasks:
+  Mr.Robot:
+    priority: 1
+    rss: "https://showrss.info/show/273.rss"
+    template: tv 
+
+schedules:
+  - tasks: '*'
+    interval:
+      minutes: 10
