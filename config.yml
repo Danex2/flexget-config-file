@@ -2,17 +2,26 @@ templates:
   tv:
     series:
       settings:
-        1080p:
-          quality: 1080p
+        shows:
           set:
-            path: /User/dane/Desktop/TV Shows/{{series_name}}/Season {{series_season}}
-        720p:
-          quality: 720p
-          set:
-            path: /User/dane/Desktop/TV Shows/{{series_name}}/Season {{series_season}}
-      1080p:
+            path: ~/Media/TV Shows/{{series_name}}/Season {{series_season}}
+      shows:
         - Mr.Robot:
+            quality: 720p|1080p
             begin: S04E01
+        - Power:
+            quality: 720p|1080p
+            begin: S03E01
+            season_packs: yes
+        - Tom Clancy's Jack Ryan:
+            quality: 1080p
+            begin: S02E01
+        - Silicon Valley:
+            quality: 1080p
+            begin: S06E01
+        - Ballers:
+            quality: 1080p
+            begin: S03E01
     transmission:
       enabled: yes
       host: localhost
@@ -24,7 +33,23 @@ tasks:
   Mr.Robot:
     priority: 1
     rss: "https://showrss.info/show/273.rss"
-    template: tv 
+    template: tv
+  Power:
+    priority: 2
+    rss: "https://showrss.info/show/343.rss"
+    template: tv
+  Tom Clancy's Jack Ryan:
+    priority: 3
+    rss: "https://showrss.info/show/1037.rss"
+    template: tv
+  Silicon Valley:
+    priority: 4
+    rss: "https://showrss.info/show/275.rss"
+    template: tv
+  Ballers:
+    priority: 5
+    rss: "https://showrss.info/show/310.rss"
+    template: tv
 
 schedules:
   - tasks: '*'
